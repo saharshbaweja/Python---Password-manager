@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Saved Passwords</h1>
+<table>
+    <tr>
+        <th>Account Name</th>
+        <th>Password</th>
+    </tr>
+    {% for name, pwd in passwords %}
+    <tr>
+        <td>{{ name }}</td>
+        <td>{{ pwd }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

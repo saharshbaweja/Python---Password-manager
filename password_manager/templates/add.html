@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Add a New Password</h1>
+<form method="POST">
+    <label for="name">Account Name:</label>
+    <input type="text" id="name" name="name" required>
+    <br>
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required>
+    <br>
+    <button type="button" onclick="generatePassword()">Generate Password</button>
+    <button type="submit">Add</button>
+</form>
+
+<script>
+function generatePassword() {
+    fetch('/generate_password')
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById('password').value = data.password;
+            document.getElementById('password').type = 'text';
+        });
+}
+</script>
+{% endblock %}
